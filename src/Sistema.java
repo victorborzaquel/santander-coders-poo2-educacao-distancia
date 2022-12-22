@@ -1,24 +1,24 @@
 
-import entities.Aluno;
-import entities.AlunoJs;
-import entities.Professor;
-import entities.Turma;
+import entities.*;
+import utils.TurmaUtils;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class Sistema {
     public static void main(String[] args) {
-        Professor professor = new Professor("Kadu");
-        AlunoJs aluno = new AlunoJs("Victor");
-        AlunoJs aluno2 = new AlunoJs("Thiago");
-        AlunoJs aluno3 = new AlunoJs("Jose");
+        Professor professorJava = new Professor("Kadu");
+        List<AlunoJava> alunosJava = TurmaUtils.criarAlunosJava("Victor", "Thiago", "Jose");
+        Turma<AlunoJava> turmaJava = new Turma<>();
+        turmaJava.setProfessor(professorJava);
+        turmaJava.adicionarAlunos(alunosJava);
 
-        List<AlunoJs> alunos = Arrays.asList(aluno, aluno2, aluno3);
+        Professor professorJs = new Professor("Gabriela");
+        List<AlunoJs> alunosJs = TurmaUtils.criarAlunosJs("Henrique", "Luana", "Joao");
+        Turma<AlunoJs> turmaJs = new Turma<>(professorJs, alunosJs);
 
-        Turma<AlunoJs> turma = new Turma<>(professor, alunos);
+        System.out.println(turmaJava);
 
-        turma.ordenarAlunos();
-        System.out.println(turma);
+        turmaJava.ordenarAlunos();
+        System.out.println(turmaJava);
     }
 }

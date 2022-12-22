@@ -1,7 +1,5 @@
 package entities;
 
-import java.util.Objects;
-
 public abstract class Pessoa implements Comparable<Pessoa> {
     private String nome;
 
@@ -23,7 +21,7 @@ public abstract class Pessoa implements Comparable<Pessoa> {
     }
 
     @Override
-    public int compareTo(Pessoa o) {
-        return this.nome.compareTo(o.getNome());
+    public int compareTo(Pessoa pessoa) {
+        return nome.compareTo(pessoa.getNome());
     }
 }

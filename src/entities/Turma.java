@@ -1,5 +1,6 @@
 package entities;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -7,8 +8,8 @@ public class Turma<T extends Aluno> {
     private Professor professor;
     private final List<T> alunos;
 
-    public Turma(List<T> alunos) {
-        this.alunos = alunos;
+    public Turma() {
+        this.alunos = new ArrayList<>();
     }
 
     public Turma(Professor professor, List<T> alunos) {
@@ -18,6 +19,10 @@ public class Turma<T extends Aluno> {
 
     public void adicionarAluno(T aluno) {
         alunos.add(aluno);
+    }
+
+    public void adicionarAlunos(List<T> alunos) {
+        this.alunos.addAll(alunos);
     }
 
     public void setProfessor(Professor professor) {
@@ -38,9 +43,10 @@ public class Turma<T extends Aluno> {
 
     @Override
     public String toString() {
-        return "Turma de " + alunos.get(0).getClass().getSimpleName() + " {" +
-                "professor=" + professor +
-                ", alunos=" + alunos +
-                '}';
+        if (alunos.size() > 0) {
+            String materia = alunos.get(0).getEstudando();
+            return String.format("Turma={materia=%s, professor=%s, alunos=%s}", materia, professor, alunos);
+        }
+        return String.format("Turma={professor=%s, alunos=%s}", professor, alunos);
     }
 }
