@@ -4,6 +4,7 @@ import entities.AlunoJs;
 import entities.Professor;
 import entities.Turma;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Sistema {
@@ -13,10 +14,11 @@ public class Sistema {
         AlunoJs aluno2 = new AlunoJs("Thiago");
         AlunoJs aluno3 = new AlunoJs("Jose");
 
-        List<AlunoJs> alunos = List.of(aluno, aluno2, aluno3);
+        List<AlunoJs> alunos = Arrays.asList(aluno, aluno2, aluno3);
 
         Turma<AlunoJs> turma = new Turma<>(professor, alunos);
 
+        turma.ordenarAlunos();
         System.out.println(turma);
     }
 }

@@ -1,6 +1,8 @@
 package entities;
 
-public abstract class Pessoa {
+import java.util.Objects;
+
+public  class Pessoa implements Comparable<Pessoa> {
     private String nome;
 
     public Pessoa(String nome) {
@@ -15,8 +17,14 @@ public abstract class Pessoa {
         this.nome = nome;
     }
 
+
     @Override
     public String toString() {
         return nome;
+    }
+
+    @Override
+    public int compareTo(Pessoa o) {
+        return this.nome.compareTo(o.getNome());
     }
 }

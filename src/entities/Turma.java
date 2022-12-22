@@ -1,14 +1,14 @@
 package entities;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Turma<T extends Aluno> {
     private Professor professor;
-    private final List<T> alunos;
+    private List<T> alunos = new ArrayList<>();
 
     public Turma() {
-        alunos = new ArrayList<>();
     }
 
     public Turma(Professor professor, List<T> alunos) {
@@ -16,8 +16,8 @@ public class Turma<T extends Aluno> {
         this.alunos = alunos;
     }
 
-    public void adicionarAluno(T t) {
-        alunos.add(t);
+    public void adicionarAluno(T aluno) {
+        alunos.add(aluno);
     }
 
     public void setProfessor(Professor professor) {
@@ -30,6 +30,10 @@ public class Turma<T extends Aluno> {
 
     public List<T> getAlunos() {
         return alunos;
+    }
+
+    public void ordenarAlunos() {
+        Collections.sort(alunos);
     }
 
     @Override
