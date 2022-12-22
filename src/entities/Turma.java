@@ -1,8 +1,5 @@
 package entities;
 
-import com.letscode.santander.coders.poo2.aula.a02.entities.Aluno;
-import entities.Professor;
-
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,8 +1,7 @@
-package com.letscode.santander.coders.poo2.aula.a02;
 
-import com.letscode.santander.coders.poo2.aula.a02.entities.Aluno;
-import com.letscode.santander.coders.poo2.aula.a02.entities.Professor;
-import com.letscode.santander.coders.poo2.aula.a02.entities.Turma;
+import entities.Aluno;
+import entities.Professor;
+import entities.Turma;
 
 import java.util.List;
 
