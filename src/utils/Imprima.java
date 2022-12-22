@@ -3,7 +3,12 @@ package utils;
 import entities.Turma;
 
 public class Imprima {
+    public Imprima() {
+        throw new IllegalStateException("Utility class");
+    }
+
     private static final Integer LARGURA = 80;
+
     public static void divisoria() {
         System.out.println("-".repeat(LARGURA));
     }
