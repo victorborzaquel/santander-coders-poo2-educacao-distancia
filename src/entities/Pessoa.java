@@ -2,7 +2,7 @@ package entities;
 
 import java.util.Objects;
 
-public  class Pessoa implements Comparable<Pessoa> {
+public abstract class Pessoa implements Comparable<Pessoa> {
     private String nome;
 
     public Pessoa(String nome) {
@@ -16,7 +16,6 @@ public  class Pessoa implements Comparable<Pessoa> {
     public void setNome(String nome) {
         this.nome = nome;
     }
-
 
     @Override
     public String toString() {

@@ -1,14 +1,14 @@
 package entities;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class Turma<T extends Aluno> {
     private Professor professor;
-    private List<T> alunos = new ArrayList<>();
+    private final List<T> alunos;
 
-    public Turma() {
+    public Turma(List<T> alunos) {
+        this.alunos = alunos;
     }
 
     public Turma(Professor professor, List<T> alunos) {
