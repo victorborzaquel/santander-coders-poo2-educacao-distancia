@@ -17,7 +17,7 @@ public class Sistema {
         List<AlunoJs> alunosJs = AlunosService.criarAlunosJs("Joao", "Leomin", "Bruna");
         Turma<AlunoJs> turmaJs = new Turma<>();
         turmaJs.setProfessor(new Professor("Gabriela"));
-        turmaJs.adicionarAlunos(alunosJs);
+        AlunosTurmaService.adicionarAlunos(turmaJs, alunosJs);
 
         AlunosTurmaService.ordenarAlunosPorNome(turmaJava);
 

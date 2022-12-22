@@ -3,27 +3,19 @@ package entities;
 import models.Aluno;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Turma<T extends Aluno> {
     private Professor professor;
-    private final List<T> alunos = new ArrayList<>();
+    private final List<T> alunos;
 
     public Turma() {
+        this.alunos = new ArrayList<>();
     }
 
     private Turma(Professor professor, List<T> alunos) {
         this.professor = professor;
-        adicionarAlunos(alunos);
-    }
-
-    public void adicionarAluno(T aluno) {
-        alunos.add(aluno);
-    }
-
-    public void adicionarAlunos(List<T> alunos) {
-        this.alunos.addAll(alunos);
+        this.alunos = alunos;
     }
 
     public void setProfessor(Professor professor) {
