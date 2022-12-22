@@ -3,21 +3,21 @@ package entities;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Turma {
+public class Turma<T extends Aluno> {
     private Professor professor;
-    private final List<Aluno> alunos;
+    private final List<T> alunos;
 
     public Turma() {
         alunos = new ArrayList<>();
     }
 
-    public Turma(Professor professor, List<Aluno> alunos) {
+    public Turma(Professor professor, List<T> alunos) {
         this.professor = professor;
         this.alunos = alunos;
     }
 
-    public void adicionarAluno(Aluno aluno) {
-        alunos.add(aluno);
+    public void adicionarAluno(T t) {
+        alunos.add(t);
     }
 
     public void setProfessor(Professor professor) {
@@ -28,7 +28,15 @@ public class Turma {
         return professor;
     }
 
-    public List<Aluno> getAlunos() {
+    public List<T> getAlunos() {
         return alunos;
+    }
+
+    @Override
+    public String toString() {
+        return "Turma de " + alunos.get(0).getClass().getSimpleName() + " {" +
+                "professor=" + professor +
+                ", alunos=" + alunos +
+                '}';
     }
 }
