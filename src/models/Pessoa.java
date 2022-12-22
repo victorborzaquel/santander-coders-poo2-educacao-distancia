@@ -1,4 +1,4 @@
-package entities;
+package models;
 
 public abstract class Pessoa implements Comparable<Pessoa> {
     private String nome;

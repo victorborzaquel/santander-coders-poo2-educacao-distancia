@@ -1,20 +1,21 @@
 package entities;
 
+import models.Aluno;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class Turma<T extends Aluno> {
     private Professor professor;
-    private final List<T> alunos;
+    private final List<T> alunos = new ArrayList<>();
 
     public Turma() {
-        this.alunos = new ArrayList<>();
     }
 
-    public Turma(Professor professor, List<T> alunos) {
+    private Turma(Professor professor, List<T> alunos) {
         this.professor = professor;
-        this.alunos = alunos;
+        adicionarAlunos(alunos);
     }
 
     public void adicionarAluno(T aluno) {
@@ -37,16 +38,32 @@ public class Turma<T extends Aluno> {
         return alunos;
     }
 
-    public void ordenarAlunos() {
-        Collections.sort(alunos);
-    }
-
     @Override
     public String toString() {
-        if (alunos.size() > 0) {
-            String materia = alunos.get(0).getEstudando();
-            return String.format("Turma={materia=%s, professor=%s, alunos=%s}", materia, professor, alunos);
-        }
         return String.format("Turma={professor=%s, alunos=%s}", professor, alunos);
+    }
+
+    public static class Builder<T extends Aluno> {
+        private Professor professor;
+        private final List<T> alunos = new ArrayList<>();
+
+        public Builder<T> professor(Professor professor) {
+            this.professor = professor;
+            return this;
+        }
+
+        public Builder<T> adicionarAluno(T aluno) {
+            alunos.add(aluno);
+            return this;
+        }
+
+        public Builder<T> alunos(List<T> alunos) {
+            this.alunos.addAll(alunos);
+            return this;
+        }
+
+        public Turma<T> build() {
+            return new Turma<>(professor, alunos);
+        }
     }
 }

@@ -1,4 +1,4 @@
-package entities;
+package models;
 
 public abstract class Aluno extends Pessoa {
     private String estudando;

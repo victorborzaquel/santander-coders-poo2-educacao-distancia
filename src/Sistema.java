@@ -1,24 +1,27 @@
 
 import entities.*;
-import utils.TurmaUtils;
+import services.AlunosService;
+import services.AlunosTurmaService;
+import utils.Imprima;
 
 import java.util.List;
 
 public class Sistema {
     public static void main(String[] args) {
-        Professor professorJava = new Professor("Kadu");
-        List<AlunoJava> alunosJava = TurmaUtils.criarAlunosJava("Victor", "Thiago", "Jose");
-        Turma<AlunoJava> turmaJava = new Turma<>();
-        turmaJava.setProfessor(professorJava);
-        turmaJava.adicionarAlunos(alunosJava);
+        List<AlunoJava> alunosJava = AlunosService.criarAlunosJava("Victor", "Thiago", "Jose");
+        Turma<AlunoJava> turmaJava = new Turma.Builder<AlunoJava>()
+                .professor(new Professor("Kadu"))
+                .alunos(alunosJava)
+                .build();
 
-        Professor professorJs = new Professor("Gabriela");
-        List<AlunoJs> alunosJs = TurmaUtils.criarAlunosJs("Henrique", "Luana", "Joao");
-        Turma<AlunoJs> turmaJs = new Turma<>(professorJs, alunosJs);
+        List<AlunoJs> alunosJs = AlunosService.criarAlunosJs("Joao", "Leomin", "Bruna");
+        Turma<AlunoJs> turmaJs = new Turma<>();
+        turmaJs.setProfessor(new Professor("Gabriela"));
+        turmaJs.adicionarAlunos(alunosJs);
 
-        System.out.println(turmaJava);
+        AlunosTurmaService.ordenarAlunosPorNome(turmaJava);
 
-        turmaJava.ordenarAlunos();
-        System.out.println(turmaJava);
+        Imprima.turma("java", turmaJava);
+        Imprima.turma("javascript", turmaJs);
     }
 }
