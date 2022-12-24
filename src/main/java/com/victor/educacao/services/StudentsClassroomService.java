@@ -1,7 +1,7 @@
-package com.victor.services;
+package com.victor.educacao.services;
 
-import com.victor.entities.Classroom;
-import com.victor.models.Student;
+import com.victor.educacao.entities.Classroom;
+import com.victor.educacao.models.Student;
 
 import java.util.Collections;
 import java.util.List;

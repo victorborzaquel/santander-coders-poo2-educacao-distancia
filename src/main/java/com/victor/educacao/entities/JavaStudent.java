@@ -1,6 +1,6 @@
-package com.victor.entities;
+package com.victor.educacao.entities;
 
-import com.victor.models.Student;
+import com.victor.educacao.models.Student;
 
 public class JavaStudent extends Student {
     public JavaStudent(String name) {

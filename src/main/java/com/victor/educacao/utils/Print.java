@@ -1,4 +1,4 @@
-package com.victor.utils;
+package com.victor.educacao.utils;
 
 import java.util.List;
 

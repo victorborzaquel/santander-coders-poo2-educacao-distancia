@@ -1,6 +1,6 @@
-package com.victor.entities;
+package com.victor.educacao.entities;
 
-import com.victor.models.Person;
+import com.victor.educacao.models.Person;
 
 public class Teacher extends Person {
     public Teacher(String name) {
